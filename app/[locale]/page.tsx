@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { ArrowRight, Zap } from "lucide-react";
-import { SUBJECTS, getSubjectName } from "@/lib/subjects";
 import QuestionsList from "./QuestionsList";
 
 export default function HomePage() {
@@ -30,24 +29,6 @@ export default function HomePage() {
           >
             {t("ask_button")} <ArrowRight className="h-5 w-5" />
           </Link>
-        </div>
-      </section>
-
-      {/* Subject grid */}
-      <section className="mb-12">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
-          {SUBJECTS.map((subject) => (
-            <Link
-              key={subject.slug}
-              href={`/${locale}/subjects/${subject.slug}`}
-              className="group flex flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-900 p-4 text-center transition-all hover:border-white/25 hover:bg-gray-800"
-            >
-              <span className="text-3xl">{subject.icon}</span>
-              <span className="text-xs font-medium text-gray-300 group-hover:text-white">
-                {getSubjectName(subject, locale)}
-              </span>
-            </Link>
-          ))}
         </div>
       </section>
 

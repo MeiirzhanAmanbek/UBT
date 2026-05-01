@@ -5,14 +5,11 @@ import { usePathname } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { BookOpen, PlusCircle } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { cn } from "@/lib/utils";
 
 export default function Header() {
   const t = useTranslations("nav");
   const locale = useLocale();
   const pathname = usePathname();
-
-  const isActive = (path: string) => pathname.includes(path);
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-800 bg-gray-950/95 backdrop-blur supports-[backdrop-filter]:bg-gray-950/80">
@@ -28,21 +25,9 @@ export default function Header() {
           <nav className="hidden items-center gap-6 sm:flex">
             <Link
               href={`/${locale}`}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-white",
-                pathname === `/${locale}` ? "text-white" : "text-gray-400"
-              )}
+              className={`text-sm font-medium transition-colors hover:text-white ${pathname === `/${locale}` ? "text-white" : "text-gray-400"}`}
             >
               {t("home")}
-            </Link>
-            <Link
-              href={`/${locale}/ask`}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-white",
-                isActive("/ask") ? "text-white" : "text-gray-400"
-              )}
-            >
-              {t("subjects")}
             </Link>
           </nav>
 
