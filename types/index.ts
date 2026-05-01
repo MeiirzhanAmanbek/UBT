@@ -1,6 +1,7 @@
 export type Locale = "ru" | "kz";
 
 export type SubjectSlug =
+  | "general"
   | "math"
   | "physics"
   | "chemistry"
