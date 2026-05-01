@@ -19,8 +19,8 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
           <Link href={`/${locale}`} className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600">
-              <BookOpen className="h-4 w-4 text-white" />
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+              <BookOpen className="h-4 w-4 text-gray-950" />
             </div>
             <span className="text-lg font-bold text-white">{t("brand")}</span>
           </Link>
@@ -50,7 +50,7 @@ export default function Header() {
             <LanguageSwitcher />
             <Link
               href={`/${locale}/ask`}
-              className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+              className="flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-semibold text-gray-950 transition-colors hover:bg-gray-100"
             >
               <PlusCircle className="h-4 w-4" />
               <span className="hidden sm:inline">{t("ask")}</span>

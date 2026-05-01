@@ -45,19 +45,19 @@ export default function SolveButton({ questionId, locale }: Props) {
 
   if (solving) {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-2xl border border-blue-800/40 bg-blue-900/10 py-16">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-600/20">
-          <Loader2 className="h-8 w-8 animate-spin text-blue-400" />
+      <div className="flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/5 py-16">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10">
+          <Loader2 className="h-8 w-8 animate-spin text-white" />
         </div>
         <div className="text-center">
           <p className="font-semibold text-white">{t("solving")}</p>
-          <p className="mt-1 text-sm text-gray-400">Claude AI обрабатывает вашу задачу...</p>
+          <p className="mt-1 text-sm text-gray-400">ИИ обрабатывает вашу задачу...</p>
         </div>
         <div className="flex gap-1">
           {[0, 1, 2].map((i) => (
             <span
               key={i}
-              className="h-2 w-2 animate-bounce rounded-full bg-blue-500"
+              className="h-2 w-2 animate-bounce rounded-full bg-white/60"
               style={{ animationDelay: `${i * 0.15}s` }}
             />
           ))}
@@ -73,7 +73,7 @@ export default function SolveButton({ questionId, locale }: Props) {
         {errorDetail && <p className="text-xs text-red-300 max-w-sm text-center">{errorDetail}</p>}
         <button
           onClick={handleSolve}
-          className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-blue-700"
+          className="flex items-center gap-2 rounded-xl bg-white px-6 py-2.5 text-sm font-semibold text-gray-950 transition-colors hover:bg-gray-100"
         >
           <Sparkles className="h-4 w-4" />
           {t("error_retry")}

@@ -1,6 +1,9 @@
 import { Subject } from "@/types";
 
+export const DEFAULT_SUBJECT_SLUG = "general";
+
 export const SUBJECTS: Subject[] = [
+  { id: "0", slug: "general", name_ru: "Общее", name_kz: "Жалпы", icon: "📚", color: "bg-gray-500" },
   { id: "1", slug: "math", name_ru: "Математика", name_kz: "Математика", icon: "📐", color: "bg-blue-500" },
   { id: "2", slug: "physics", name_ru: "Физика", name_kz: "Физика", icon: "⚡", color: "bg-yellow-500" },
   { id: "3", slug: "chemistry", name_ru: "Химия", name_kz: "Химия", icon: "🧪", color: "bg-green-500" },

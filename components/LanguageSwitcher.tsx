@@ -22,7 +22,7 @@ export default function LanguageSwitcher() {
         className={cn(
           "rounded-md px-3 py-1 text-xs font-semibold transition-all",
           locale === "ru"
-            ? "bg-blue-600 text-white shadow"
+            ? "bg-white text-gray-950 shadow"
             : "text-gray-400 hover:text-white"
         )}
       >
@@ -33,7 +33,7 @@ export default function LanguageSwitcher() {
         className={cn(
           "rounded-md px-3 py-1 text-xs font-semibold transition-all",
           locale === "kz"
-            ? "bg-blue-600 text-white shadow"
+            ? "bg-white text-gray-950 shadow"
             : "text-gray-400 hover:text-white"
         )}
       >

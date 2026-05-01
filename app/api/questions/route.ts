@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { SUBJECTS } from "@/lib/subjects";
+import { SUBJECTS, DEFAULT_SUBJECT_SLUG } from "@/lib/subjects";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -10,22 +10,16 @@ const supabase = createClient(
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    const subjectSlug = formData.get("subject_slug") as string;
+    const subjectSlug = (formData.get("subject_slug") as string) || DEFAULT_SUBJECT_SLUG;
     const questionText = formData.get("question_text") as string | null;
     const language = (formData.get("language") as string) || "ru";
     const imageFile = formData.get("image") as File | null;
 
-    if (!subjectSlug) {
-      return NextResponse.json({ error: "Subject required" }, { status: 400 });
-    }
     if (!questionText?.trim() && !imageFile) {
       return NextResponse.json({ error: "Question or image required" }, { status: 400 });
     }
 
-    const subject = SUBJECTS.find((s) => s.slug === subjectSlug);
-    if (!subject) {
-      return NextResponse.json({ error: "Invalid subject" }, { status: 400 });
-    }
+    const subject = SUBJECTS.find((s) => s.slug === subjectSlug) ?? SUBJECTS.find((s) => s.slug === DEFAULT_SUBJECT_SLUG)!;
 
     // Upsert subject to DB
     const { data: dbSubject, error: subjectError } = await supabase

@@ -19,7 +19,7 @@ export default function QuestionCard({ question }: Props) {
   return (
     <Link
       href={`/${locale}/questions/${question.id}`}
-      className="group flex flex-col gap-3 rounded-xl border border-gray-800 bg-gray-900 p-5 transition-all hover:border-blue-600/50 hover:bg-gray-800/80"
+      className="group flex flex-col gap-3 rounded-xl border border-gray-800 bg-gray-900 p-5 transition-all hover:border-white/20 hover:bg-gray-800/80"
     >
       <div className="flex items-start justify-between gap-2">
         <div className="flex flex-wrap items-center gap-2">
@@ -68,7 +68,7 @@ export default function QuestionCard({ question }: Props) {
         <span className="text-xs text-gray-500">
           {formatDate(question.created_at, locale)}
         </span>
-        <span className="text-xs font-medium text-blue-400 opacity-0 transition-opacity group-hover:opacity-100">
+        <span className="text-xs font-medium text-white/70 opacity-0 transition-opacity group-hover:opacity-100">
           {t("view")} →
         </span>
       </div>

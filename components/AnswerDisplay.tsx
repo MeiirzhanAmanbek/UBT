@@ -43,7 +43,7 @@ export default function AnswerDisplay({ answer }: Props) {
           <div className="space-y-4">
             {answer.steps.map((step) => (
               <div key={step.number} className="flex gap-4">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-xs font-bold text-gray-950">
                   {step.number}
                 </div>
                 <div className="flex-1">

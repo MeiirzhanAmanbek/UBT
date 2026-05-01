@@ -74,7 +74,7 @@ export default async function QuestionPage({
           <AnswerDisplay answer={answer} />
           <Link
             href={`/${locale}/ask`}
-            className="flex w-full items-center justify-center rounded-xl border border-gray-700 bg-gray-800 py-3 text-sm font-medium text-gray-300 transition-colors hover:border-blue-600/50 hover:text-white"
+            className="flex w-full items-center justify-center rounded-xl border border-gray-700 bg-gray-800 py-3 text-sm font-medium text-gray-300 transition-colors hover:border-white/25 hover:text-white"
           >
             {t("ask_another")}
           </Link>

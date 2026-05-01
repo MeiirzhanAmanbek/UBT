@@ -38,7 +38,7 @@ export default async function SubjectPage({
         </div>
         <Link
           href={`/${locale}/ask`}
-          className="flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+          className="flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-gray-950 transition-colors hover:bg-gray-100"
         >
           <PlusCircle className="h-4 w-4" />
           {t("ask_button")}
