@@ -10,7 +10,7 @@ const supabase = createClient(
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    const subjectSlug = (formData.get("subject_slug") as string) || DEFAULT_SUBJECT_SLUG;
+    const rawSlug = formData.get("subject_slug");
     const questionText = formData.get("question_text") as string | null;
     const language = (formData.get("language") as string) || "ru";
     const imageFile = formData.get("image") as File | null;
@@ -19,7 +19,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Question or image required" }, { status: 400 });
     }
 
-    const subject = SUBJECTS.find((s) => s.slug === subjectSlug) ?? SUBJECTS.find((s) => s.slug === DEFAULT_SUBJECT_SLUG)!;
+    const subject =
+      SUBJECTS.find((s) => s.slug === rawSlug) ??
+      SUBJECTS.find((s) => s.slug === DEFAULT_SUBJECT_SLUG)!;
 
     // Upsert subject to DB
     const { data: dbSubject, error: subjectError } = await supabase
